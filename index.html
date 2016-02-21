@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>A2B</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/tiles.css" rel="stylesheet"></link>
+    <link href="css/main.css" rel="stylesheet"></link>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/autocomplete.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5F2HyDw2Wn9UDaqYn9bs2ztQJVbSSHEY&signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
+</head>
+
+<body background="img/minimalBG_PC.jpg" style="overflow:hidden;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top" id="title">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">A2B</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- END Navigation -->
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" id=top>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>A2B</h1>
+                        <hr class="small">
+                        <span class="subheading">Get where you want the quickest and cheapest way possible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END Page Header -->
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label for="startLocation" class="col-md-4 control-label">Start Location:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="startLocation" onfocus="geolocate()" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination" class="col-md-4 control-label">Destination:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="destination" onfocus="geolocate()" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-4">
+                            <a href="#map">
+                                <button id="goButton" onclick="submitAddresses();" class="btn btn-default">Go</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fixedbuttonHome">
+        <a href="#top">
+            <button id="homeButton" class="btn btn-default">Home</button>
+        </a>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="row" id="mainContent">
+        <div class="col-md-2">
+            <div id="tiles">.</div>
+        </div>
+        <div class="col-md-10">
+            <div id="map"></div>
+        </div>
+    </div>
+
+
+    <!--  <div id="floating-panel">
+        <button id="option1" class="btn btn-default tile">
+            <div class="col-md-5">
+                <img src="img/uberLogo.png" width="100%">
+            </div>
+            <div class="col-md-7">
+                <h4>$20</h4>
+                <h4>20min</h4>
+            </div>
+        </button>
+        <button id="option2" class="btn btn-default tile">
+            <div class="col-md-5">
+                <img src="img/walkingLogo.jpg" width="100%">
+            </div>
+            <div class="col-md-7">
+                <h6>$0</h6>
+                <h6>1h 40min</h6>
+            </div>
+        </button>
+        <button id="option3" class="btn btn-default tile">
+            <div class="col-md-5">
+                <img src="img/Bike-Logo.jpg" width="100%">
+            </div>
+            <div class="col-md-7">
+                <h6>$0</h6>
+                <h6>1h 10min</h6>
+            </div>
+        </button>
+        <button id="option4" class="btn btn-default tile">
+            taxi
+        </button>
+    </div>
+    -->
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <br />
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+
+                var target = this.hash;
+                var $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function() {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

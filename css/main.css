@@ -1,0 +1,40 @@
+#map {
+    width: 100%;
+}
+
+#panelBG {
+    position: absolute;
+    top: 1150px;
+    z-index: 3;
+    padding-left: 5px;
+    width: 500px;
+    height: 100%px;
+}
+
+label {
+    font: normal 20px Open Sans !important;
+    color: #FFF;
+}
+
+input[type='text'] {
+    font: normal 15px Open Sans !important;
+}
+#fixedbuttonHome {
+    z-index: 3;
+    position: fixed;
+    display: block;
+    bottom: 25px;
+    left: 80px; 
+}    
+#mainContent {
+    overflow: hidden;
+}
+
+#mainContent > [class*="col-"] {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+#mainContent > .col-md-2 {
+    padding-right: 0 !important;
+}
