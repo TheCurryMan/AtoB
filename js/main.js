@@ -129,6 +129,9 @@ function getUberEstimate(latitude, longitude) {
 
             console.log("Uber: " + uberPrice + ", " + uberTime + ", " + uberSurge);
             calculateRoute(startLoc, dest, google.maps.TravelMode.DRIVING);
+        },
+        error: function(error){
+            alert("error handler, activate!");
         }
     });
 }
@@ -251,6 +254,22 @@ function addTile(objTime, objId, objPrice) {
         </button>';
     }
 
+    else if (objId == 0 && isNaN(objTime)) {
+        div.innerHTML = '<button class="tile btn btn-default"> \
+            <div class = "col-md-5 tileImage" >\
+                <a href="https://www.uber.com/">\
+                    <img class="img-responsive" src="img/' + imageStrings[objId] + '">\
+                </a>\
+            </div>\
+            <div class="col-md-7 tileTextContainer">\
+                <div class="tileText">\
+                    <p>Not</p>\
+                    <p>Available</p>\
+                </div>\
+            </div>\
+        </button>';
+    }
+    
     else if (objId == 0) {
         div.innerHTML = '<button class="tile btn btn-default"> \
             <div class = "col-md-5 tileImage" >\
